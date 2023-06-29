@@ -1,0 +1,23 @@
+# Site settings
+title: "sid.me"
+author: Siddhant Rao
+email: raosid23@gmail.com
+twitter_username: raosiddhant99
+github_username: siddhantrao23
+
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://siddhantrao23.github.io" # the base hostname & protocol for your site
+
+google_analytics_id: UA-1111111111-1
+disqus_id:
+
+# Build settings
+include: [_pages]
+markdown: kramdown
+permalink: /:year/:month/:title.html
+
+sass:
+    style: compressed
+
+exclude: [vendor]
+
