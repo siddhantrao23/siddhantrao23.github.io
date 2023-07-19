@@ -15,7 +15,7 @@ I am Siddhant Rao, a Software Engineer, Distributed Cloud System enthusiast and 
 
 Here you can find my <a href="/blog">blog</a>, <a href="/projects">projects</a>, <a href="/diagrams">diagrams</a> and anything else I think may be useful.
 
-I also particularly enjoy painting, cycling and creating detailed diagrams. I'm a sucker for a good sunset, cats and otters <3
+I also particularly enjoy painting, cycling and origami. I'm a sucker for a good sunset, cats and otters <3
 
 For anything else, feel free to <a href="mailto:raosiddhant99@gmail.com">email me</a>!
 
