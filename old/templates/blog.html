@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+blog&nbsp;&mdash;&nbsp;sid.me
+{% endblock %}
+
+{% block nav %}
+<a href="/index.html">home</a>&nbsp;
+<a href="/projects.html">projects</a>&nbsp;&mdash;&nbsp;
+<a href="https://github.com/siddhantrao23">github</a>&nbsp;
+<a href="mailto:raosiddhant99@gmail.com">email</a>
+<a href="/assets/resume_siddhant_rao.pdf">résumé</a>
+{% endblock %}
+
+{% block backbar %}
+{% endblock %}
+
+{% block content %}
+{% for post in meta.posts %}
+<p>
+  <h2>{{ loop.index }}:
+      <a href="posts/{{ post.slug }}.html">{{ post.title }}</a>
+    <small>{{ post.date }}</small>
+  </h2>
+  {{post.summary}}
+</p>
+{% endfor %}
+
+{% endblock %}

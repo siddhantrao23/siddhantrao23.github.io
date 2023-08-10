@@ -13,7 +13,7 @@ Hey there!
 
 I am Siddhant Rao, a Software Engineer, Distributed Cloud System enthusiast and love optimization, System Architecture and everything Open Source.
 
-Here you can find my <a href="/blog">blog</a>, <a href="/projects">projects</a>, <a href="/diagrams">diagrams</a> and anything else I think may be useful.
+Here you can find my <a href="/blog">blog and diagrams</a>, <a href="/projects">projects</a>, and anything else I think may be useful.
 
 I also particularly enjoy painting, cycling and origami. I'm a sucker for a good sunset, cats and otters <3
 

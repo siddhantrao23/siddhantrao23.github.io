@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>
+Some Rust Things&nbsp;&mdash;&nbsp;sid.me
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:400,400i" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/monokai.css">
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+        <strong>Sid's&nbsp;Website</strong>&nbsp;
+        <nav>
+          
+          <a href="/index.html">home</a>&nbsp;
+          <a href="/blog.html">blog</a>&nbsp;
+          <a href="/projects.html">projects</a>&nbsp;&mdash;&nbsp;
+          <a href="https://github.com/siddhantrao23">github</a>&nbsp;
+          <a href="mailto:raosiddhant99@gmail.com">email</a>
+          <a href="/assets/resume_siddhant_rao.pdf">résumé</a>
+          <!-- <a href="/">rss</a>&nbsp; -->
+          
+        </nav>
+      </header>
+
+      
+<h1>Some Rust Things</h1>
+<small>2020-09-09</small>
+<p>The Rust type system and language features</p>
+<p>
+  <h2>Getting familiar with Rust</h2>
+
+<p>Type Systems in Rust
+- <a href="https://www.rust-lang.org/learn">Rust Official Learn Docs</a>
+- "the book" of Rust, for a solid <em>reference</em> to the language and all its principles
+- <a href="https://play.rust-lang.org/">An Online Rust Playground</a></p>
+
+<h3>Why Rust?</h3>
+
+<ul>
+<li>Safer systems programming</li>
+<li>Painless and <a href="https://blog.rust-lang.org/2015/04/10/Fearless-Concurrency.html">Fearless concurrency</a></li>
+<li>Interface with C/C++</li>
+</ul>
+
+<h3>Data Types in Rust</h3>
+
+<ul>
+<li>Integer Types: unsigned and signed <pre><code>i32 u8</code></pre></li>
+<li>Tuples: groups values into compund type <pre><code>(3, 4.5, 1)</code></pre></li>
+</ul>
+
+<h2>Getting Into some Concepts</h2>
+
+<h3>Mutability</h3>
+
+<pre><code data-line-numbers data-trim data-noescape>
+fn not_mutable() {
+let vec = Vec::new();
+vec.push(110);
+vec.push(120);
+vec.push(130);
+println!("{}", sum_val);
+}
+</code></pre>
+
+<h3>Move Semantics</h3>
+
+<p>Ownership, moving and lifetimes</p>
+
+<pre><code data-line-numbers data-trim data-noescape>
+fn move_it() {
+let vec = vec![1, 2, 3, 4];
+let sum_val = sum(vec);
+// accessing vec after this point is a static error
+println!("{}", sum_val);
+}
+</code></pre>
+
+<pre><code data-line-numbers data-trim data-noescape>
+fn sum(v: Vec&lt;i32&gt;) -> i32 {
+let mut acc = 0;
+for i in v.iter() { acc += *i; }
+acc // no need to expilicitly mention return
+}
+// v is destroyed here
+</code></pre>
+
+<h3>Copy Semantics</h3>
+
+<pre><code data-line-numbers data-trim data-noescape>
+let i = 10;
+let j = i + 10;
+</code></pre>
+
+<p>We can also explicitly define or derive the <code>copy</code> Trait for some structs</p>
+
+<h3>Sharing is Important! The &amp;</h3>
+
+<pre><code data-line-numbers data-trim data-noescape>
+fn borrow_it() {
+let s = String::from("borrow this");
+let len = calculate_len(&s);
+print_it(&s);
+}
+
+fn calculate_len(s: &String) -> usize {
+s.len()
+}
+
+fn print_it(s: &String) {
+println!("{}", s);
+}
+</code></pre>
+
+<ul>
+<li>References</li>
+<li>Borrow Checking</li>
+</ul>
+
+<pre><code data-line-numbers data-trim data-noescape>
+fn borrow_it() {
+let s = String::from("borrow this");
+let ref_s = &s;
+print_it(s);
+
+let len = calculate_len(ref_s);
+println!("{}", len);
+}
+
+fn print_it(s: String) {
+println!("{}", s);
+}
+
+fn calculate_len(s: &String) -> usize {
+s.len()
+}
+</code></pre>
+
+<h3>Sharing is Important, But so is Modifying &amp;mut</h3>
+
+<h3>This tutorial still needs to be finished</h3>
+
+</p>
+
+
+      <br>
+
+    </div>
+  </body>
+</html>
