@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 <p align="center">
-  <img class="me" src="/assets/cropped.png">
+  <img class="me" src="/assets/photo.jpg" width="400">
 </p>
 <br>
 
