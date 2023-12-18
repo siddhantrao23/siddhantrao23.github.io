@@ -7,6 +7,8 @@ tags: diagram systems databases
 comments: true
 ---
 
+Recently, I've been reading Alex Petrov's ![Database Internals](https://www.goodreads.com/book/show/44647144-database-internals) as a part of a book club. It has been very insightful into the inner workings of a database. Things that you don't really think about when it comes to data. How is the system that stores data efficiently organized and what challenges come up in that effort?
+
 ## What are we storing?
 
 Databases deal with records, from employees of a company to patients at a hospital. There needs to be an efficient way to store these records which abstracts away the disk to memory swaps needed to deal with large data records.
@@ -24,7 +26,7 @@ As it can be seen, handling this complexity won't come easily. There are a bunch
 
 ### ✨ SLOTTED PAGES ✨
 
-This miracle structure allows the database to deal with the problems mentioned before in the best and most easy-to-understand way. Each page is split up into three main parts.
+This miracle structure allows the database to deal with the problems mentioned before in the best and easy-to-understand way. Each page is split up into three main parts.
 - Header: containing metadata and other important cell and page information. (checksum, flags)
 - Pointers/Offsets: holds the offsets and size of each cell and maintains logical ordering of cells.
 - Cells: the actual tuples of information.
@@ -36,4 +38,5 @@ This has some pretty cool, not-so-easy-to-notice features.
 - The offsets handle the logical ordering of the cells, from the figure you can see that the order of the cells is Laura -> Adi -> Tim.
 - Deleting a record means just marking the offset as invalid, updating means marking the old cell as invalid and adding a new cell. The reclaiming of this space and subsequent defragmentation is done at a later time.
 - Defragmentation is a lot easier to handle, the tuples can be moved without the reference (offset) having to be changed.
-- The tuples are no longer restricted by size and can have variable-sized fields
+- The tuples are no longer restricted by size and can have variable-sized fields.
+- Each tuple can be referenced by a simple `tuple_index = <page id, offset id>`

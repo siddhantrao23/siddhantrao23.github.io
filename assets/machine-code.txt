@@ -1,0 +1,386 @@
+--- Raw source ---
+function Polygon(sides, length) {
+
+  this.sides = sides;
+
+  this.length = length;
+
+}
+
+let p1 = Polygon(3, 5);
+
+let p2 = Polygon(8, 2);
+
+
+
+for (let i = 0; i < 1e6; i++) {
+
+  Polygon(i, i)
+
+}
+
+--- Optimized code ---
+optimization_id = 1
+source_position = 0
+kind = TURBOFAN
+stack_slots = 16
+compiler = turbofan
+address = 00007FF5FF24F841
+
+Instructions (size = 548)
+00007FF5FF24F8C0     0  488b59a0             REX.W movq rbx,[rcx-0x60]
+00007FF5FF24F8C4     4  f6430f01             testb [rbx+0xf],0x1
+00007FF5FF24F8C8     8  7405                 jz 00007FF5FF24F8CF  <+0xf>
+00007FF5FF24F8CA     a  e9352be27f           jmp 00007FF67F072404  (CompileLazyDeoptimizedCode)    ;; runtime entry
+00007FF5FF24F8CF     f  55                   push rbp
+00007FF5FF24F8D0    10  4889e5               REX.W movq rbp,rsp
+00007FF5FF24F8D3    13  56                   push rsi
+00007FF5FF24F8D4    14  57                   push rdi
+00007FF5FF24F8D5    15  50                   push rax
+00007FF5FF24F8D6    16  48ba0000000026000000 REX.W movq rdx,0000002600000000
+00007FF5FF24F8E0    20  e8dfc2e47f           call 00007FF67F09BBC4  (Abort)    ;; runtime entry
+00007FF5FF24F8E5    25  cc                   int3l
+00007FF5FF24F8E6    26  4883ec10             REX.W subq rsp,0x10
+00007FF5FF24F8EA    2a  48897598             REX.W movq [rbp-0x68],rsi
+00007FF5FF24F8EE    2e  493b65a0             REX.W cmpq rsp,[r13-0x60] (external value (StackGuard::address_of_jslimit()))
+00007FF5FF24F8F2    32  0f861e010000         jna 00007FF5FF24FA16  <+0x156>
+00007FF5FF24F8F8    38  488b55b8             REX.W movq rdx,[rbp-0x48]
+00007FF5FF24F8FC    3c  f6c201               testb rdx,0x1
+00007FF5FF24F8FF    3f  0f85bd010000         jnz 00007FF5FF24FAC2  <+0x202>
+00007FF5FF24F905    45  48b90000000040420f00 REX.W movq rcx,000F424000000000
+00007FF5FF24F90F    4f  483bd1               REX.W cmpq rdx,rcx
+00007FF5FF24F912    52  0f8ddd000000         jge 00007FF5FF24F9F5  <+0x135>
+00007FF5FF24F918    58  488b4dd0             REX.W movq rcx,[rbp-0x30]
+00007FF5FF24F91C    5c  48bf49ab621ad6010000 REX.W movq rdi,000001D61A62AB49    ;; object: 0x01d61a62ab49 <JSFunction Polygon (sfi = 000001A42B374D11)>
+00007FF5FF24F926    66  483bf9               REX.W cmpq rdi,rcx
+00007FF5FF24F929    69  0f8597010000         jnz 00007FF5FF24FAC6  <+0x206>
+00007FF5FF24F92F    6f  48bf311144d21e010000 REX.W movq rdi,0000011ED2441131    ;; object: 0x011ed2441131 <JSGlobalProxy>
+00007FF5FF24F939    79  488b7fff             REX.W movq rdi,[rdi-0x1]
+00007FF5FF24F93D    7d  49b8117013ab08010000 REX.W movq r8,00000108AB137011    ;; object: 0x0108ab137011 <Map(HOLEY_ELEMENTS)>
+00007FF5FF24F947    87  4c3bc7               REX.W cmpq r8,rdi
+00007FF5FF24F94A    8a  0f857a010000         jnz 00007FF5FF24FACA  <+0x20a>
+00007FF5FF24F950    90  488bfa               REX.W movq rdi,rdx
+00007FF5FF24F953    93  48c1ef20             REX.W shrq rdi, 32
+00007FF5FF24F957    97  49b8d957372ba4010000 REX.W movq r8,000001A42B3757D9    ;; object: 0x01a42b3757d9 <PropertyCell name=0x01a42b374b29 <String[5]: #sides> value=16920>
+00007FF5FF24F961    a1  49895017             REX.W movq [r8+0x17],rdx
+00007FF5FF24F965    a5  49b90158372ba4010000 REX.W movq r9,000001A42B375801    ;; object: 0x01a42b375801 <PropertyCell name=0x033838fc55f9 <String[6]: #length> value=16920>
+00007FF5FF24F96F    af  49895117             REX.W movq [r9+0x17],rdx
+00007FF5FF24F973    b3  83c701               addl rdi,0x1
+00007FF5FF24F976    b6  0f8052010000         jo 00007FF5FF24FACE  <+0x20e>
+00007FF5FF24F97C    bc  493b65a0             REX.W cmpq rsp,[r13-0x60] (external value (StackGuard::address_of_jslimit()))
+00007FF5FF24F980    c0  0f873d000000         ja 00007FF5FF24F9C3  <+0x103>
+00007FF5FF24F986    c6  e9b9000000           jmp 00007FF5FF24FA44  <+0x184>
+00007FF5FF24F98B    cb  660f1f840000000000   nop
+00007FF5FF24F994    d4  660f1f840000000000   nop
+00007FF5FF24F99D    dd  660f1f840000000000   nop
+00007FF5FF24F9A6    e6  660f1f840000000000   nop
+00007FF5FF24F9AF    ef  660f1f840000000000   nop
+00007FF5FF24F9B8    f8  0f1f840000000000     nop
+00007FF5FF24F9C0   100  488bfa               REX.W movq rdi,rdx
+00007FF5FF24F9C3   103  81ff40420f00         cmpl rdi,0xf4240
+00007FF5FF24F9C9   109  0f8d26000000         jge 00007FF5FF24F9F5  <+0x135>
+00007FF5FF24F9CF   10f  488bd7               REX.W movq rdx,rdi
+00007FF5FF24F9D2   112  48c1e220             REX.W shlq rdx, 32
+00007FF5FF24F9D6   116  49895017             REX.W movq [r8+0x17],rdx
+00007FF5FF24F9DA   11a  49895117             REX.W movq [r9+0x17],rdx
+00007FF5FF24F9DE   11e  488bd7               REX.W movq rdx,rdi
+00007FF5FF24F9E1   121  83c201               addl rdx,0x1
+00007FF5FF24F9E4   124  0f80e8000000         jo 00007FF5FF24FAD2  <+0x212>
+00007FF5FF24F9EA   12a  493b65a0             REX.W cmpq rsp,[r13-0x60] (external value (StackGuard::address_of_jslimit()))
+00007FF5FF24F9EE   12e  77d0                 ja 00007FF5FF24F9C0  <+0x100>
+00007FF5FF24F9F0   130  e98f000000           jmp 00007FF5FF24FA84  <+0x1c4>
+00007FF5FF24F9F5   135  498b85c0000000       REX.W movq rax,[r13+0xc0] (root (undefined_value))
+00007FF5FF24F9FC   13c  488b4de8             REX.W movq rcx,[rbp-0x18]
+00007FF5FF24FA00   140  488be5               REX.W movq rsp,rbp
+00007FF5FF24FA03   143  5d                   pop rbp
+00007FF5FF24FA04   144  4883f906             REX.W cmpq rcx,0x6
+00007FF5FF24FA08   148  7f03                 jg 00007FF5FF24FA0D  <+0x14d>
+00007FF5FF24FA0A   14a  c23000               ret 0x30
+00007FF5FF24FA0D   14d  415a                 pop r10
+00007FF5FF24FA0F   14f  488d24cc             REX.W leaq rsp,[rsp+rcx*8]
+00007FF5FF24FA13   153  4152                 push r10
+00007FF5FF24FA15   155  c3                   retl
+00007FF5FF24FA16   156  48ba0000000080000000 REX.W movq rdx,0000008000000000
+00007FF5FF24FA20   160  52                   push rdx
+00007FF5FF24FA21   161  48bbb031bd7ef67f0000 REX.W movq rbx,00007FF67EBD31B0
+00007FF5FF24FA2B   16b  b801000000           movl rax,0000000000000001
+00007FF5FF24FA30   170  48be511144d21e010000 REX.W movq rsi,0000011ED2441151    ;; object: 0x011ed2441151 <NativeContext[271]>
+00007FF5FF24FA3A   17a  e845dbe97f           call 00007FF67F0ED584  (CEntry_Return1_DontSaveFPRegs_ArgvOnStack_NoBuiltinExit)    ;; runtime entry
+00007FF5FF24FA3F   17f  e9b4feffff           jmp 00007FF5FF24F8F8  <+0x38>
+00007FF5FF24FA44   184  48897d90             REX.W movq [rbp-0x70],rdi
+00007FF5FF24FA48   188  48bb0030bd7ef67f0000 REX.W movq rbx,00007FF67EBD3000
+00007FF5FF24FA52   192  33c0                 xorl rax,rax
+00007FF5FF24FA54   194  48be511144d21e010000 REX.W movq rsi,0000011ED2441151    ;; object: 0x011ed2441151 <NativeContext[271]>
+00007FF5FF24FA5E   19e  e821dbe97f           call 00007FF67F0ED584  (CEntry_Return1_DontSaveFPRegs_ArgvOnStack_NoBuiltinExit)    ;; runtime entry
+00007FF5FF24FA63   1a3  488b4dd0             REX.W movq rcx,[rbp-0x30]
+00007FF5FF24FA67   1a7  49b90158372ba4010000 REX.W movq r9,000001A42B375801    ;; object: 0x01a42b375801 <PropertyCell name=0x033838fc55f9 <String[6]: #length> value=16920>
+00007FF5FF24FA71   1b1  49b8d957372ba4010000 REX.W movq r8,000001A42B3757D9    ;; object: 0x01a42b3757d9 <PropertyCell name=0x01a42b374b29 <String[5]: #sides> value=16920>
+00007FF5FF24FA7B   1bb  488b7d90             REX.W movq rdi,[rbp-0x70]
+00007FF5FF24FA7F   1bf  e93fffffff           jmp 00007FF5FF24F9C3  <+0x103>
+00007FF5FF24FA84   1c4  48895590             REX.W movq [rbp-0x70],rdx
+00007FF5FF24FA88   1c8  488b1dbbffffff       REX.W movq rbx,[rip+0xffffffbb]
+00007FF5FF24FA8F   1cf  33c0                 xorl rax,rax
+00007FF5FF24FA91   1d1  48be511144d21e010000 REX.W movq rsi,0000011ED2441151    ;; object: 0x011ed2441151 <NativeContext[271]>
+00007FF5FF24FA9B   1db  e8e4dae97f           call 00007FF67F0ED584  (CEntry_Return1_DontSaveFPRegs_ArgvOnStack_NoBuiltinExit)    ;; runtime entry
+00007FF5FF24FAA0   1e0  488b4dd0             REX.W movq rcx,[rbp-0x30]
+00007FF5FF24FAA4   1e4  488b5590             REX.W movq rdx,[rbp-0x70]
+00007FF5FF24FAA8   1e8  49b90158372ba4010000 REX.W movq r9,000001A42B375801    ;; object: 0x01a42b375801 <PropertyCell name=0x033838fc55f9 <String[6]: #length> value=16920>
+00007FF5FF24FAB2   1f2  49b8d957372ba4010000 REX.W movq r8,000001A42B3757D9    ;; object: 0x01a42b3757d9 <PropertyCell name=0x01a42b374b29 <String[5]: #sides> value=16920>
+00007FF5FF24FABC   1fc  e9fffeffff           jmp 00007FF5FF24F9C0  <+0x100>
+00007FF5FF24FAC1   201  90                   nop
+00007FF5FF24FAC2   202  41ff55c0             call [r13-0x40]    ;; debug: deopt position, script offset '9c'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason 'not a Smi'
+                                                             ;; debug: deopt index 0
+00007FF5FF24FAC6   206  41ff55c0             call [r13-0x40]    ;; debug: deopt position, script offset 'ad'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason 'wrong call target'
+                                                             ;; debug: deopt index 1
+00007FF5FF24FACA   20a  41ff55c0             call [r13-0x40]    ;; debug: deopt position, script offset '30'
+                                                             ;; debug: deopt position, inlining id '0'
+                                                             ;; debug: deopt reason 'wrong map'
+                                                             ;; debug: deopt index 2
+00007FF5FF24FACE   20e  41ff55c0             call [r13-0x40]    ;; debug: deopt position, script offset 'a4'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason 'overflow'
+                                                             ;; debug: deopt index 3
+00007FF5FF24FAD2   212  41ff55c0             call [r13-0x40]    ;; debug: deopt position, script offset 'a4'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason 'overflow'
+                                                             ;; debug: deopt index 4
+00007FF5FF24FAD6   216  41ff55c8             call [r13-0x38]    ;; debug: deopt position, script offset '0'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason '(unknown)'
+                                                             ;; debug: deopt index 5
+00007FF5FF24FADA   21a  41ff55c8             call [r13-0x38]    ;; debug: deopt position, script offset '8a'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason '(unknown)'
+                                                             ;; debug: deopt index 6
+00007FF5FF24FADE   21e  41ff55c8             call [r13-0x38]    ;; debug: deopt position, script offset '8a'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason '(unknown)'
+                                                             ;; debug: deopt index 7
+00007FF5FF24FAE2   222  6690                 nop
+
+Source positions:
+ pc offset  position
+         0         0
+        38       156
+        58       173
+        6f        48
+        90       164
+        97        48
+        a5        72
+        b3       164
+        bc       138
+       103       156
+       10f        48
+       11a        72
+       11e       164
+       12a       138
+       135       188
+       156         0
+       184       138
+
+Inlined functions (count = 1)
+ 0x01a42b374d11 <SharedFunctionInfo Polygon>
+
+Deoptimization Input Data (deopt points = 8)
+ index  bytecode-offset    pc
+     0               37    NA 
+     1               37    NA 
+     2                2    NA 
+     3               49    NA 
+     4               49    NA 
+     5               52   17f 
+     6               52   1a3 
+     7               52   1e0 
+
+Safepoints (entries = 3, byte size = 29)
+00007FF5FF24FA3F    17f  slots (sp->fp): 0100010010000000  deopt      5 trampoline:    216
+00007FF5FF24FA63    1a3  slots (sp->fp): 0100000010000000  deopt      6 trampoline:    21a
+00007FF5FF24FAA0    1e0  slots (sp->fp): 0100000010000000  deopt      7 trampoline:    21e
+
+RelocInfo (size = c0)
+00007FF5FF24F8CB  runtime entry
+00007FF5FF24F8E1  runtime entry
+00007FF5FF24F91E  full embedded object  (0x01d61a62ab49 <JSFunction Polygon (sfi = 000001A42B374D11)>)
+00007FF5FF24F931  full embedded object  (0x011ed2441131 <JSGlobalProxy>)
+00007FF5FF24F93F  full embedded object  (0x0108ab137011 <Map(HOLEY_ELEMENTS)>)
+00007FF5FF24F959  full embedded object  (0x01a42b3757d9 <PropertyCell name=0x01a42b374b29 <String[5]: #sides> value=16920>)
+00007FF5FF24F967  full embedded object  (0x01a42b375801 <PropertyCell name=0x033838fc55f9 <String[6]: #length> value=16920>)
+00007FF5FF24FA32  full embedded object  (0x011ed2441151 <NativeContext[10f]>)
+00007FF5FF24FA3B  runtime entry
+00007FF5FF24FA56  full embedded object  (0x011ed2441151 <NativeContext[10f]>)
+00007FF5FF24FA5F  runtime entry
+00007FF5FF24FA69  full embedded object  (0x01a42b375801 <PropertyCell name=0x033838fc55f9 <String[6]: #length> value=16920>)
+00007FF5FF24FA73  full embedded object  (0x01a42b3757d9 <PropertyCell name=0x01a42b374b29 <String[5]: #sides> value=16920>)
+00007FF5FF24FA93  full embedded object  (0x011ed2441151 <NativeContext[10f]>)
+00007FF5FF24FA9C  runtime entry
+00007FF5FF24FAAA  full embedded object  (0x01a42b375801 <PropertyCell name=0x033838fc55f9 <String[6]: #length> value=16920>)
+00007FF5FF24FAB4  full embedded object  (0x01a42b3757d9 <PropertyCell name=0x01a42b374b29 <String[5]: #sides> value=16920>)
+00007FF5FF24FAC2  deopt script offset  (9c)
+00007FF5FF24FAC2  deopt inlining id  (ffffffffffffffff)
+00007FF5FF24FAC2  deopt reason  (not a Smi)
+00007FF5FF24FAC2  deopt index
+00007FF5FF24FAC6  deopt script offset  (ad)
+00007FF5FF24FAC6  deopt inlining id  (ffffffffffffffff)
+00007FF5FF24FAC6  deopt reason  (wrong call target)
+00007FF5FF24FAC6  deopt index
+00007FF5FF24FACA  deopt script offset  (30)
+00007FF5FF24FACA  deopt inlining id  (0)
+00007FF5FF24FACA  deopt reason  (wrong map)
+00007FF5FF24FACA  deopt index
+00007FF5FF24FACE  deopt script offset  (a4)
+00007FF5FF24FACE  deopt inlining id  (ffffffffffffffff)
+00007FF5FF24FACE  deopt reason  (overflow)
+00007FF5FF24FACE  deopt index
+00007FF5FF24FAD2  deopt script offset  (a4)
+00007FF5FF24FAD2  deopt inlining id  (ffffffffffffffff)
+00007FF5FF24FAD2  deopt reason  (overflow)
+00007FF5FF24FAD2  deopt index
+00007FF5FF24FAD6  deopt script offset  (0)
+00007FF5FF24FAD6  deopt inlining id  (ffffffffffffffff)
+00007FF5FF24FAD6  deopt reason  ((unknown))
+00007FF5FF24FAD6  deopt index
+00007FF5FF24FADA  deopt script offset  (8a)
+00007FF5FF24FADA  deopt inlining id  (ffffffffffffffff)
+00007FF5FF24FADA  deopt reason  ((unknown))
+00007FF5FF24FADA  deopt index
+00007FF5FF24FADE  deopt script offset  (8a)
+00007FF5FF24FADE  deopt inlining id  (ffffffffffffffff)
+00007FF5FF24FADE  deopt reason  ((unknown))
+00007FF5FF24FADE  deopt index
+
+--- End code ---
+--- Raw source ---
+(sides, length) {
+
+  this.sides = sides;
+
+  this.length = length;
+
+}
+
+
+--- Optimized code ---
+optimization_id = 0
+source_position = 16
+kind = TURBOFAN
+name = Polygon
+stack_slots = 6
+compiler = turbofan
+address = 00007FF5FF24FB41
+
+Instructions (size = 220)
+00007FF5FF24FBC0     0  488b59a0             REX.W movq rbx,[rcx-0x60]
+00007FF5FF24FBC4     4  f6430f01             testb [rbx+0xf],0x1
+00007FF5FF24FBC8     8  7405                 jz 00007FF5FF24FBCF  <+0xf>
+00007FF5FF24FBCA     a  e93528e27f           jmp 00007FF67F072404  (CompileLazyDeoptimizedCode)    ;; runtime entry
+00007FF5FF24FBCF     f  55                   push rbp
+00007FF5FF24FBD0    10  4889e5               REX.W movq rbp,rsp
+00007FF5FF24FBD3    13  56                   push rsi
+00007FF5FF24FBD4    14  57                   push rdi
+00007FF5FF24FBD5    15  50                   push rax
+00007FF5FF24FBD6    16  4883ec08             REX.W subq rsp,0x8
+00007FF5FF24FBDA    1a  488975e0             REX.W movq [rbp-0x20],rsi
+00007FF5FF24FBDE    1e  493b65a0             REX.W cmpq rsp,[r13-0x60] (external value (StackGuard::address_of_jslimit()))
+00007FF5FF24FBE2    22  0f8673000000         jna 00007FF5FF24FC5B  <+0x9b>
+00007FF5FF24FBE8    28  488b5510             REX.W movq rdx,[rbp+0x10]
+00007FF5FF24FBEC    2c  488b4aff             REX.W movq rcx,[rdx-0x1]
+00007FF5FF24FBF0    30  48bf117013ab08010000 REX.W movq rdi,00000108AB137011    ;; object: 0x0108ab137011 <Map(HOLEY_ELEMENTS)>
+00007FF5FF24FBFA    3a  483bf9               REX.W cmpq rdi,rcx
+00007FF5FF24FBFD    3d  0f8587000000         jnz 00007FF5FF24FC8A  <+0xca>
+00007FF5FF24FC03    43  488b4d18             REX.W movq rcx,[rbp+0x18]
+00007FF5FF24FC07    47  f6c101               testb rcx,0x1
+00007FF5FF24FC0A    4a  0f857e000000         jnz 00007FF5FF24FC8E  <+0xce>
+00007FF5FF24FC10    50  48bfd957372ba4010000 REX.W movq rdi,000001A42B3757D9    ;; object: 0x01a42b3757d9 <PropertyCell name=0x01a42b374b29 <String[5]: #sides> value=16920>
+00007FF5FF24FC1A    5a  48894f17             REX.W movq [rdi+0x17],rcx
+00007FF5FF24FC1E    5e  488b7d20             REX.W movq rdi,[rbp+0x20]
+00007FF5FF24FC22    62  40f6c701             testb rdi,0x1
+00007FF5FF24FC26    66  0f8566000000         jnz 00007FF5FF24FC92  <+0xd2>
+00007FF5FF24FC2C    6c  48ba0158372ba4010000 REX.W movq rdx,000001A42B375801    ;; object: 0x01a42b375801 <PropertyCell name=0x033838fc55f9 <String[6]: #length> value=16920>
+00007FF5FF24FC36    76  48897a17             REX.W movq [rdx+0x17],rdi
+00007FF5FF24FC3A    7a  498b85c0000000       REX.W movq rax,[r13+0xc0] (root (undefined_value))
+00007FF5FF24FC41    81  488b4de8             REX.W movq rcx,[rbp-0x18]
+00007FF5FF24FC45    85  488be5               REX.W movq rsp,rbp
+00007FF5FF24FC48    88  5d                   pop rbp
+00007FF5FF24FC49    89  4883f903             REX.W cmpq rcx,0x3
+00007FF5FF24FC4D    8d  7f03                 jg 00007FF5FF24FC52  <+0x92>
+00007FF5FF24FC4F    8f  c21800               ret 0x18
+00007FF5FF24FC52    92  415a                 pop r10
+00007FF5FF24FC54    94  488d24cc             REX.W leaq rsp,[rsp+rcx*8]
+00007FF5FF24FC58    98  4152                 push r10
+00007FF5FF24FC5A    9a  c3                   retl
+00007FF5FF24FC5B    9b  48ba0000000028000000 REX.W movq rdx,0000002800000000
+00007FF5FF24FC65    a5  52                   push rdx
+00007FF5FF24FC66    a6  48bbb031bd7ef67f0000 REX.W movq rbx,00007FF67EBD31B0
+00007FF5FF24FC70    b0  b801000000           movl rax,0000000000000001
+00007FF5FF24FC75    b5  48be511144d21e010000 REX.W movq rsi,0000011ED2441151    ;; object: 0x011ed2441151 <NativeContext[271]>
+00007FF5FF24FC7F    bf  e800d9e97f           call 00007FF67F0ED584  (CEntry_Return1_DontSaveFPRegs_ArgvOnStack_NoBuiltinExit)    ;; runtime entry
+00007FF5FF24FC84    c4  e95fffffff           jmp 00007FF5FF24FBE8  <+0x28>
+00007FF5FF24FC89    c9  90                   nop
+00007FF5FF24FC8A    ca  41ff55c0             call [r13-0x40]    ;; debug: deopt position, script offset '30'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason 'wrong map'
+                                                             ;; debug: deopt index 0
+00007FF5FF24FC8E    ce  41ff55c0             call [r13-0x40]    ;; debug: deopt position, script offset '30'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason 'not a Smi'
+                                                             ;; debug: deopt index 1
+00007FF5FF24FC92    d2  41ff55c0             call [r13-0x40]    ;; debug: deopt position, script offset '48'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason 'not a Smi'
+                                                             ;; debug: deopt index 2
+00007FF5FF24FC96    d6  41ff55c8             call [r13-0x38]    ;; debug: deopt position, script offset '10'
+                                                             ;; debug: deopt position, inlining id 'ffffffff'
+                                                             ;; debug: deopt reason '(unknown)'
+                                                             ;; debug: deopt index 3
+00007FF5FF24FC9A    da  6690                 nop
+
+Source positions:
+ pc offset  position
+         0        16
+        28        48
+        5e        72
+        7a        83
+        9b        16
+
+Inlined functions (count = 0)
+
+Deoptimization Input Data (deopt points = 4)
+ index  bytecode-offset    pc
+     0                2    NA 
+     1                2    NA 
+     2                8    NA 
+     3               -1    c4 
+
+Safepoints (entries = 1, byte size = 12)
+00007FF5FF24FC84     c4  slots (sp->fp): 10000000  deopt      3 trampoline:     d6
+
+RelocInfo (size = 5e)
+00007FF5FF24FBCB  runtime entry
+00007FF5FF24FBF2  full embedded object  (0x0108ab137011 <Map(HOLEY_ELEMENTS)>)
+00007FF5FF24FC12  full embedded object  (0x01a42b3757d9 <PropertyCell name=0x01a42b374b29 <String[5]: #sides> value=16920>)
+00007FF5FF24FC2E  full embedded object  (0x01a42b375801 <PropertyCell name=0x033838fc55f9 <String[6]: #length> value=16920>)
+00007FF5FF24FC77  full embedded object  (0x011ed2441151 <NativeContext[10f]>)
+00007FF5FF24FC80  runtime entry
+00007FF5FF24FC8A  deopt script offset  (30)
+00007FF5FF24FC8A  deopt inlining id  (ffffffffffffffff)
+00007FF5FF24FC8A  deopt reason  (wrong map)
+00007FF5FF24FC8A  deopt index
+00007FF5FF24FC8E  deopt script offset  (30)
+00007FF5FF24FC8E  deopt inlining id  (ffffffffffffffff)
+00007FF5FF24FC8E  deopt reason  (not a Smi)
+00007FF5FF24FC8E  deopt index
+00007FF5FF24FC92  deopt script offset  (48)
+00007FF5FF24FC92  deopt inlining id  (ffffffffffffffff)
+00007FF5FF24FC92  deopt reason  (not a Smi)
+00007FF5FF24FC92  deopt index
+00007FF5FF24FC96  deopt script offset  (10)
+00007FF5FF24FC96  deopt inlining id  (ffffffffffffffff)
+00007FF5FF24FC96  deopt reason  ((unknown))
+00007FF5FF24FC96  deopt index
+
+--- End code ---
+
